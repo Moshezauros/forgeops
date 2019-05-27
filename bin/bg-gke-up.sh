@@ -61,6 +61,8 @@ kubectl create namespace ${GKE_MONITORING_NS}
 # Create the namespace parsed from cfg file and set the context
 kubectl create namespace ${GKE_CLUSTER_NS}
 kubectl config set-context $(kubectl config current-context) --namespace=${GKE_CLUSTER_NS}
+# TO-DO: REMOVE THIS LINE
+kubectl config current-context
 
 # Create storage class
 # BG comment out if not using fast storage 
