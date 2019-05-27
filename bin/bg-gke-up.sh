@@ -55,14 +55,17 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Create monitoring namespace
-kubectl create namespace ${GKE_MONITORING_NS}
-
-# Create the namespace parsed from cfg file and set the context
-kubectl create namespace ${GKE_CLUSTER_NS}
-kubectl config set-context $(kubectl config current-context) --namespace=${GKE_CLUSTER_NS}
 # TO-DO: REMOVE THIS LINE
 kubectl config current-context
+echo "marker 1"
+# Create monitoring namespace
+kubectl create namespace ${GKE_MONITORING_NS}
+echo "marker 2"
+# Create the namespace parsed from cfg file and set the context
+kubectl create namespace ${GKE_CLUSTER_NS}
+echo "marker 3"
+kubectl config set-context $(kubectl config current-context) --namespace=${GKE_CLUSTER_NS}
+echo "marker 4"
 
 # Create storage class
 # BG comment out if not using fast storage 
