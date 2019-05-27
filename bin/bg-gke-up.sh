@@ -7,27 +7,27 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-ask() {
+# ask() {
 
-	read -p "Should i continue (y/n)?" choice
-	case "$choice" in 
-   		y|Y|yes|YES ) echo "yes";;
-   		n|N|no|NO ) echo "no"; exit 1;;
-   		* ) echo "Invalid input, Bye!"; exit 1;;
-	esac
-}
+# 	read -p "Should i continue (y/n)?" choice
+# 	case "$choice" in 
+#    		y|Y|yes|YES ) echo "yes";;
+#    		n|N|no|NO ) echo "no"; exit 1;;
+#    		* ) echo "Invalid input, Bye!"; exit 1;;
+# 	esac
+# }
 
 echo -e "WARNING: This script requires a properly provisioned GCP Project with appropriate accounts,\n\t roles, privileges, keyrings, keys etc. It also assumes a fully functional gcloud CLI.\n\t These pre-requisites are outlined in the DevOps Documentation. Please ensure you have\n\t completed all before proceeding."
 
 
 echo ""
 echo "=> Have you copied the template file etc/gke-env.template to etc/gke-env.cfg and edited to cater to your enviroment?"
-ask
+# ask
 
 authn=$(gcloud auth list --filter=status:ACTIVE --format="value(account)")
 echo ""
 echo "You are authenticated and logged into GCP as \"${authn}\". If this is not correct then exit this script and run \"gcloud auth login\" to login into the correct account first."
-ask
+# ask
 
 #source "$(dirname $0)/../etc/gke-env.cfg"
 source "${BASH_SOURCE%/*}/../etc/gke-env.cfg"
