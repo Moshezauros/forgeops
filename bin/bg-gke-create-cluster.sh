@@ -13,26 +13,26 @@ set -o nounset
 source "${BASH_SOURCE%/*}/../etc/gke-env.cfg"
 
 
-echo "=> Read the following env variables from config file"
-echo -e "\tProject ID = ${GKE_PROJECT_ID}"
-echo -e "\tPrimary Zone = ${GKE_PRIMARY_ZONE}"
-echo -e "\tCluster Name = ${GKE_CLUSTER_NAME}"
-echo -e "\tCluster Namespace = ${GKE_CLUSTER_NS}"
-echo -e "\tCluster Monitoring Namespace = ${GKE_MONITORING_NS}"
-echo -e "\tCluster Version = ${GKE_CLUSTER_VERSION}"
-echo -e "\tCluster Size =  ${GKE_CLUSTER_SIZE}"
-echo -e "\tVM Type = ${GKE_MACHINE_TYPE}"
-echo -e "\tNetwork = ${GKE_NETWORK_NAME}"
-echo -e "\tIngress Controller IP = ${GKE_INGRESS_IP}"
-echo -e "\tExtra Arguments = ${GKE_EXTRA_ARGS}"
-echo ""
-echo "=> Do you want to continue creating the cluster with these settings?"
-read -p "Continue (y/n)?" choice
-case "${choice}" in 
-   y|Y|yes|YES ) echo "yes";;
-   n|N|no|NO ) echo "no"; exit 1;;
-   * ) echo "Invalid input, Bye!"; exit 1;;
-esac
+# echo "=> Read the following env variables from config file"
+# echo -e "\tProject ID = ${GKE_PROJECT_ID}"
+# echo -e "\tPrimary Zone = ${GKE_PRIMARY_ZONE}"
+# echo -e "\tCluster Name = ${GKE_CLUSTER_NAME}"
+# echo -e "\tCluster Namespace = ${GKE_CLUSTER_NS}"
+# echo -e "\tCluster Monitoring Namespace = ${GKE_MONITORING_NS}"
+# echo -e "\tCluster Version = ${GKE_CLUSTER_VERSION}"
+# echo -e "\tCluster Size =  ${GKE_CLUSTER_SIZE}"
+# echo -e "\tVM Type = ${GKE_MACHINE_TYPE}"
+# echo -e "\tNetwork = ${GKE_NETWORK_NAME}"
+# echo -e "\tIngress Controller IP = ${GKE_INGRESS_IP}"
+# echo -e "\tExtra Arguments = ${GKE_EXTRA_ARGS}"
+# echo ""
+# echo "=> Do you want to continue creating the cluster with these settings?"
+# read -p "Continue (y/n)?" choice
+# case "${choice}" in 
+#    y|Y|yes|YES ) echo "yes";;
+#    n|N|no|NO ) echo "no"; exit 1;;
+#    * ) echo "Invalid input, Bye!"; exit 1;;
+# esac
 
 # Who created this cluster.
 CREATOR="${USER:-unknown}"
