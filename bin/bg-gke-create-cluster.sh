@@ -55,6 +55,7 @@ if [ ! -z "${GKE_NODE_LOCATIONS}" ]; then
       GKE_EXTRA_ARGS="${GKE_EXTRA_ARGS} --node-locations=${GKE_NODE_LOCATIONS}"
 fi
 
+echo "starting cluster creation"
 
 # Create cluster with values parsed from cfg file
 # scopes are required for gcs storage backup and cloud sql
@@ -90,3 +91,4 @@ gcloud container clusters create $GKE_CLUSTER_NAME \
 #  --enable-autoupgrade 
 
 
+echo "finished cluster creation"

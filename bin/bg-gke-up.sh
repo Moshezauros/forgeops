@@ -46,9 +46,11 @@ if [ $? -ne 0 ]; then
     exit 1 
 fi
 
+echo "entering /bg-gke-create-cluster.sh"
 # Now create the cluster
 # BG changed the script below to not use SSD.
 ./bg-gke-create-cluster.sh
+echo "exiting /bg-gke-create-cluster.sh"
 
 # If an error is returned by the above script then exit
 if [ $? -ne 0 ]; then
