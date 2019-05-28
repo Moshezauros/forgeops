@@ -57,8 +57,6 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# TO-DO: REMOVE THIS LINE
-kubectl config current-context
 echo "marker 1"
 # Create monitoring namespace
 kubectl create namespace ${GKE_MONITORING_NS}
@@ -68,6 +66,8 @@ kubectl create namespace ${GKE_CLUSTER_NS}
 echo "marker 3"
 kubectl config set-context $(kubectl config current-context) --namespace=${GKE_CLUSTER_NS}
 echo "marker 4"
+# TO-DO: REMOVE THIS LINE
+kubectl config current-context
 
 # Create storage class
 # BG comment out if not using fast storage 
