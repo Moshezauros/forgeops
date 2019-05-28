@@ -58,6 +58,11 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "marker 1"
+echo $(whoami)
+echo "sudo config view: --------------"
+echo $(sudo kubectl config view)
+echo "config view: --------------"
+echo $(kubectl config view)
 # Create monitoring namespace
 kubectl create namespace ${GKE_MONITORING_NS}
 echo "marker 2"
