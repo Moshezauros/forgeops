@@ -39,7 +39,8 @@ gcloud config set project ${GKE_PROJECT_ID}
 gcloud services enable \
   container.googleapis.com \
   cloudkms.googleapis.com \
-  file.googleapis.com
+  file.googleapis.com \
+  cloudresourcemanager.googleapis.com
 
 if [ $? -ne 0 ]; then
     echo "Some of the API's could not be enabled.  Please fix manually first."
@@ -58,9 +59,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "marker 1"
-echo $(whoami)
-echo "sudo config view: --------------"
-echo $(sudo kubectl config view)
+gcloud container clusters get-credentials $GKE_CLUSTER_NAME --region ${GKE_PRIMARY_ZONE}
 echo "config view: --------------"
 echo $(kubectl config view)
 # Create monitoring namespace
