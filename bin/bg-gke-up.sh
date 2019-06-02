@@ -39,8 +39,7 @@ gcloud config set project ${GKE_PROJECT_ID}
 gcloud services enable \
   container.googleapis.com \
   cloudkms.googleapis.com \
-  file.googleapis.com \
-  cloudresourcemanager.googleapis.com
+  file.googleapis.com
 
 if [ $? -ne 0 ]; then
     echo "Some of the API's could not be enabled.  Please fix manually first."
