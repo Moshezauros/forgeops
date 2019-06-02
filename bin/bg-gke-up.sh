@@ -58,20 +58,12 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "marker 1"
-gcloud container clusters get-credentials $GKE_CLUSTER_NAME --region ${GKE_PRIMARY_ZONE}
-echo "config view: --------------"
-echo $(kubectl config view)
+# gcloud container clusters get-credentials $GKE_CLUSTER_NAME --region ${GKE_PRIMARY_ZONE}
 # Create monitoring namespace
 kubectl create namespace ${GKE_MONITORING_NS}
-echo "marker 2"
 # Create the namespace parsed from cfg file and set the context
 kubectl create namespace ${GKE_CLUSTER_NS}
-echo "marker 3"
 kubectl config set-context $(kubectl config current-context) --namespace=${GKE_CLUSTER_NS}
-echo "marker 4"
-# TO-DO: REMOVE THIS LINE
-kubectl config current-context
 
 # Create storage class
 # BG comment out if not using fast storage 
